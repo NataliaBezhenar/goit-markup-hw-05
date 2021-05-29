@@ -158,6 +158,7 @@ img {
 
 .main-nav-link {
   color: var(--primary-text-color);
+  position: relative;
 }
 
 .auth-list-link {
@@ -174,7 +175,7 @@ img {
 }
 
 .current {
-  color: var(--accent-color);
+  color: var(--accent-color); 
 }
 
 .main-nav-item:not(:last-child),
@@ -192,6 +193,25 @@ img {
   align-items: center;
 }
 
+.main-nav-link::after {
+  opacity: 0;
+  content: '';
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  left: 0;
+  top: 0; 
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  margin-top: 45px; 
+}
+
+.main-nav-link:hover::after,
+.main-nav-link:focus::after,
+.current::after {
+ opacity: 1;
+}
 /* ********** END HEADER ********** */
 
 /* *********** LOGO *********** */
@@ -600,6 +620,10 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   fill: #000000;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-close-btn:hover .modal-close-icon {
+  fill: var(--accent-color);
+}
 /* ********* END MODAL ********** */
