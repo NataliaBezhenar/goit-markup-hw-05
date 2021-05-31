@@ -635,23 +635,32 @@ img {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
+  transition: opacity var(--transition-duration) var(--transition-timing-func), 
+  visibility var(--transition-duration) var(--transition-timing-func);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
   background-color: var(--primary-white-color);
   border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-duration) var(--transition-timing-func);
 }
 
 .is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 .modal-close-btn {
